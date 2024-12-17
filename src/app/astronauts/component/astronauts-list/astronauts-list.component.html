@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="btn-group" role="group">
+        <a type="button" class="btn btn-info" href="astronauts/create">Create</a>
+    </div>
+</div>
+<div>
+    <app-entity-list
+        [title]="'Astronauts'"
+        [data]="astronauts"
+        [columns]="columns"
+        (edit)="editAstronaut($event)"
+        (delete)="deleteAstronaut($event)"
+    >
+    </app-entity-list>
+</div>

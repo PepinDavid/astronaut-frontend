@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="container">
+        <div class="text-center">
+            <h2>{{ title }}</h2>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    @for(col of columns; track col.header;) {
+                        <th scope="col">{{ col.header }}</th>
+                    }
+                    <th scope="col" >Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(entity of data; track entity) {
+                    <tr>
+                        @for(col of columns; track col.header;) {
+                            <td>{{ entity[col.field] }}</td>
+                        }
+                        
+                        <td>
+                            <div class="row">
+                                <div class="btn-group">
+                                    <button class="btn btn-info" (click)="edit.emit(entity)">Edit</button>
+                                    <button class="btn btn-danger" (click)="delete.emit(entity.id)">Delete</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
